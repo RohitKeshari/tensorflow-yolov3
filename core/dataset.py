@@ -96,7 +96,10 @@ class Dataset(object):
                 self.batch_count = 0
                 np.random.shuffle(self.annotations)
                 raise StopIteration
-
+                
+    def next(self): ## next() is rquired for python2
+        return self.__next__()
+    
     def random_horizontal_flip(self, image, bboxes):
 
         if random.random() < 0.5:
